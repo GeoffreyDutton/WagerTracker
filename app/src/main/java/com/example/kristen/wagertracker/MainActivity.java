@@ -11,12 +11,14 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    // TODO Enter the name of the track
-    @BindView(R.id.name_of_track_entry)
-    EditText nameEntry;
+    //Used new technique Michael Showed to tie IDs to controls
+    @BindView(R.id.name_of_track_entry) EditText nameEntry;
 
-    // TODO Enter the amount wagered
     @BindView(R.id.amount_wagered_entry) EditText amountEntry;
+
+    @BindView(R.id.date_bet_was_placed_entry) EditText betDate;
+
+    @BindView(R.id.type_of_bet_entry) EditText betType;
 
     // TODO Geoff: Do these yourself and add the input to the message shown in the Toast
     // TODO Enter the type of bet
@@ -25,16 +27,14 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.submit_wager_button)
     void submitWager() {
         // TODO Change this to a Wager class rather than a simple String
-        String wager = "";
+        // TODO Geoff: Create the wager class and give it a toString method that will be the shown in the Toast
 
-        String nameOfTrack = nameEntry.getText().toString();
-        String amountWagered = amountEntry.getText().toString();
+        //Test Data
+        Wager wager = new Wager(nameEntry.getText().toString(), betDate.getText().toString(),
+                betType.getText().toString(), amountEntry.getText().toString());
 
-        wager += "name: " + nameOfTrack;
-        wager += "\n";
-        wager += "amount wagered: " + amountWagered;
-
-        Toast.makeText(this, wager, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, wager.toString(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, thisWager.toString(), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -42,5 +42,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+    }
+
+    public class Wager{
+        String trackName;
+        String wagerDate;
+        String wagerType;
+        String wagerAmount;
+
+        //Constructor
+        public Wager(String wTrack, String wDate, String wType, String wAmount){
+            trackName = wTrack;
+            wagerDate = wDate;
+            wagerType = wType;
+            wagerAmount = wAmount;
+        }
+
+        @Override
+        public String toString(){
+            return "Track: " + trackName + "\n"
+                    + "Date of Wager: " + wagerDate + "\n"
+                    + "Type of Wager: " + wagerType + "\n"
+                    + "Amount of Wager: " + wagerAmount ;
+        }
+
     }
 }
