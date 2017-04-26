@@ -30,8 +30,11 @@ public class MainActivity extends AppCompatActivity {
         // TODO Geoff: Create the wager class and give it a toString method that will be the shown in the Toast
 
         //Test Data
-        Wager wager = new Wager(nameEntry.getText().toString(), betDate.getText().toString(),
-                betType.getText().toString(), amountEntry.getText().toString());
+        Wager wager = new Wager(
+                nameEntry.getText().toString(),
+                betDate.getText().toString(),
+                betType.getText().toString(),
+                amountEntry.getText().toString());
 
         Toast.makeText(this, wager.toString(), Toast.LENGTH_SHORT).show();
        // Toast.makeText(this, thisWager.toString(), Toast.LENGTH_LONG).show();
