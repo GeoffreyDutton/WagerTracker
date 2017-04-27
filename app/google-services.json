@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "534735133966",
+    "firebase_url": "https://wager-tracker.firebaseio.com",
+    "project_id": "wager-tracker",
+    "storage_bucket": "wager-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534735133966:android:a0e5f5cbbbe85cad",
+        "android_client_info": {
+          "package_name": "com.example.kristen.wagertracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534735133966-ptp81mqi2t3q8280rm35a3tugceb125n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUnfoUC7XilDtu25CuKLdifw61GhkW4FQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

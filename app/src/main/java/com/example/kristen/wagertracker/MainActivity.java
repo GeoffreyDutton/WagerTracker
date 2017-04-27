@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -38,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, wager.toString(), Toast.LENGTH_SHORT).show();
        // Toast.makeText(this, thisWager.toString(), Toast.LENGTH_LONG).show();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference wagersDatabaseReference = database.getReference("wagers");
+
+        wagersDatabaseReference.push().setValue(wager);
     }
 
     @Override
@@ -45,29 +53,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-    }
-
-    public class Wager{
-        String trackName;
-        String wagerDate;
-        String wagerType;
-        String wagerAmount;
-
-        //Constructor
-        public Wager(String wTrack, String wDate, String wType, String wAmount){
-            trackName = wTrack;
-            wagerDate = wDate;
-            wagerType = wType;
-            wagerAmount = wAmount;
-        }
-
-        @Override
-        public String toString(){
-            return "Track: " + trackName + "\n"
-                    + "Date of Wager: " + wagerDate + "\n"
-                    + "Type of Wager: " + wagerType + "\n"
-                    + "Amount of Wager: " + wagerAmount ;
-        }
-
     }
 }
